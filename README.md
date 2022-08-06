@@ -33,3 +33,4 @@ node index --action="add" --name="John Doe" --email="john@mail.com"
 ```
 
 ![exemple add screenshot](https://prnt.sc/TZi3oSCREBIW)
+![exemple add screenshot](https://imagizer.imageshack.com/img923/6996/m9JWDv.png)
