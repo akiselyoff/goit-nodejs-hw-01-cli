@@ -6,9 +6,8 @@ const contactsPath = path.resolve('./db/contacts.json');
 
 async function listContacts() {
   const data = await fs.readFile(contactsPath, 'utf-8');
-  const parsedData = JSON.parse(data);
-
-  return parsedData;
+  const contacts = JSON.parse(data);
+  return contacts;
 }
 
 async function getContactById(contactId) {
@@ -20,23 +19,23 @@ async function getContactById(contactId) {
 
   if (!findedContact) {
     console.log(`there is no contact with id: ${contactId}`);
-    return;
+    return null;
   }
 
-  return findedContact || null;
+  return findedContact;
 }
 
 async function removeContact(contactId) {
   const contacts = await listContacts();
 
-  const idx = contacts.findIndex(contact => contact.id === contactId);
-  if (idx === -1) {
-    return null;
-  }
+  const idx = contacts.findIndex(
+    contact => contact.id === contactId.toString()
+  );
+  if (idx === -1) return null;
+
   const [deletedContact] = contacts.splice(idx, 1);
 
-  const stringifyContacts = JSON.stringify(contacts, null, 2);
-  await fs.writeFile(contactsPath, stringifyContacts);
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
   return deletedContact;
 }
@@ -50,6 +49,7 @@ async function addContact(name, email, phone) {
     2
   );
   await fs.writeFile(contactsPath, newContacts);
+  return newContacts;
 }
 
 module.exports = {

@@ -1,3 +1,4 @@
+const { Command } = require('commander');
 const {
   listContacts,
   getContactById,
@@ -5,7 +6,6 @@ const {
   addContact,
 } = require('./contacts');
 
-const { Command } = require('commander');
 const program = new Command();
 program
   .option('-a, --action <type>', 'choose action')
