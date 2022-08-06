@@ -29,9 +29,11 @@
 ![exemple remove screenshot](https://prnt.sc/Oo_QV5R1Use5)
 
 - Add contact to contact list:
-  ![exemple add screenshot](https://prnt.sc/TZi3oSCREBIW)
 
-> Use command:
->
-> node index --action="add" --name="John Doe" --email="john@mail.com"
-> --phone="068-809-00-00"
+Use command:
+
+```html
+node index --action="add" --name="John Doe" --email="john@mail.com"
+```
+
+![exemple add screenshot](https://prnt.sc/TZi3oSCREBIW)
