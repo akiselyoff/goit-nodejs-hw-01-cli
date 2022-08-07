@@ -31,7 +31,10 @@ async function removeContact(contactId) {
   const idx = contacts.findIndex(
     contact => contact.id === contactId.toString()
   );
-  if (idx === -1) return null;
+  if (idx === -1) {
+    console.log(`There is no contact with id: ${contactId}`);
+    return null;
+  }
 
   const [deletedContact] = contacts.splice(idx, 1);
 
