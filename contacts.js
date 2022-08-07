@@ -21,7 +21,6 @@ async function getContactById(contactId) {
     console.log(`there is no contact with id: ${contactId}`);
     return null;
   }
-
   return findedContact;
 }
 
@@ -39,6 +38,7 @@ async function removeContact(contactId) {
   const [deletedContact] = contacts.splice(idx, 1);
 
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
+  console.log(`Contact with id: ${contactId} was removed from contact list`);
 
   return deletedContact;
 }
@@ -52,6 +52,7 @@ async function addContact(name, email, phone) {
     2
   );
   await fs.writeFile(contactsPath, newContacts);
+  console.log(`You added contact: ${name}, ${email}, ${phone}`);
   return newContacts;
 }
 
